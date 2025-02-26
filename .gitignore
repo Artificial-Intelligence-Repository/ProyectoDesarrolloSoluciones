@@ -170,4 +170,7 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-data/
+#data/
+#/imdb_reviews_test.csv
+#/imdb_reviews_train.csv
+#/subjclueslen1-HLTEMNLP05.tff
