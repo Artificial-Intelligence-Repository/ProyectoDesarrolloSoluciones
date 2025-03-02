@@ -6,7 +6,6 @@ import dash_bootstrap_components as dbc
 # Suponiendo que ya has desarrollado el modelo de análisis de sentimientos
 # Aquí se usa una función ficticia 'analisis_sentimiento' para este propósito
 def analisis_sentimiento(resena):
-    # Esto es solo un ejemplo; debe reemplazarlo con el análisis real del modelo
     if "buena" in resena.lower():
         return "Positiva"
     else:
