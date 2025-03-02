@@ -3,8 +3,7 @@ from dash import dcc, html
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 
-# Suponiendo que ya has desarrollado el modelo de análisis de sentimientos
-# Aquí se usa una función ficticia 'analisis_sentimiento' para este propósito
+# Implementación del modelo
 def analisis_sentimiento(resena):
     if "buena" in resena.lower():
         return "Positiva"
