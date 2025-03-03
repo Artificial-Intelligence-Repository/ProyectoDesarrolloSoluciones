@@ -5,7 +5,7 @@ import dash_bootstrap_components as dbc
 
 # Implementación del modelo
 def analisis_sentimiento(resena):
-    if "buena" in resena.lower():
+    if "jackie chan" in resena.lower():
         return "Positiva"
     else:
         return "Negativa"
@@ -54,6 +54,6 @@ def actualizar_resultado(n_clicks, resena):
     return ''
 
 if __name__ == '__main__':
-    #app.run_server(debug=True)
-    app.run_server(host ="0.0.0.0", debug=True)
+    app.run_server(debug=True)
+    #app.run_server(host ="0.0.0.0", debug=True)
 
