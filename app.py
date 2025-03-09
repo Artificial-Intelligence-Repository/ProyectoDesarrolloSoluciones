@@ -58,6 +58,6 @@ def actualizar_resultado(n_clicks, resena):
     return ''
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
-    #app.run_server(host ="0.0.0.0", debug=True)
+    #app.run_server(debug=True)
+    app.run_server(host ="0.0.0.0", debug=True)
 
