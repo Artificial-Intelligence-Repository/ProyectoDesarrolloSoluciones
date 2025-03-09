@@ -3,6 +3,10 @@ from dash import dcc, html
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 
+import mlflow
+import mlflow.sklearn
+
+
 # Implementación del modelo
 def analisis_sentimiento(resena):
     if "jackie chan" in resena.lower():
@@ -54,6 +58,6 @@ def actualizar_resultado(n_clicks, resena):
     return ''
 
 if __name__ == '__main__':
-    #app.run_server(debug=True)
-    app.run_server(host ="0.0.0.0", debug=True)
+    app.run_server(debug=True)
+    #app.run_server(host ="0.0.0.0", debug=True)
 
