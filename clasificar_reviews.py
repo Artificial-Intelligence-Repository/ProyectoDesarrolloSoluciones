@@ -17,6 +17,9 @@ from nltk.corpus import stopwords
 import mlflow
 import mlflow.sklearn
 
+import nltk
+nltk.download('stopwords')
+
 def load_imdb_reviews(ruta_archivo):
     df = pd.read_csv(ruta_archivo)
     return df
