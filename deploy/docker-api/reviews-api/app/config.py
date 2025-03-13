@@ -22,8 +22,10 @@ class Settings(BaseSettings):
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = [
         "http://localhost:3000",  # type: ignore
         "http://localhost:8000",  # type: ignore
-        "https://localhost:3000",  # type: ignore
-        "https://localhost:8000",  # type: ignore
+        "http://3.87.144.86:3000",  # type: ignore
+        "http://3.87.144.86:8000",  # type: ignore
+        "https://3.87.144.86:3000",  # type: ignore
+        "https://3.87.144.86:8000",  # type: ignore
     ]
 
     PROJECT_NAME: str = "Reviews API"
