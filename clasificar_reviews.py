@@ -97,7 +97,7 @@ rare_tokens = [(token, count) for token, count in vocabulary.items() if count < 
 print(rare_tokens)
 print(len(rare_tokens))
 
-with open('data/subjclueslen1-HLTEMNLP05.tff') as f:
+with open('subjclueslen1-HLTEMNLP05.tff') as f:
     lexicon = f.readlines()
 
 for line in lexicon[:5]:
