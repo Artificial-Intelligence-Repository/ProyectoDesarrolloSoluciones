@@ -1,0 +1,32 @@
+version: '3'
+services:
+  api:
+    build: ./docker-api
+    ports:
+      - "8001:8001"
+    environment:
+      - PORT=8001
+    volumes:
+      - ./docker-api/reviews-api:/opt/reviews-api
+      - ./docker-api/model_export:/opt/reviews-api/model_export
+    command: ["bash", "run.sh"]
+    networks:
+      - app-network
+  dash:
+    build: ./docker-dash
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - API_URL=api
+    volumes:
+      - ./docker-dash/app:/opt/app
+    command: ["python", "app2.py"]
+    networks:
+      - app-network
+    depends_on:
+      - api
+
+networks:
+  app-network:
+    driver: bridge

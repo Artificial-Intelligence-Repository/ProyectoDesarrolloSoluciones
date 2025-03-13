@@ -2,13 +2,42 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
+import requests
+import json
+import os
+
+# Get API URL from environment variable or use default
+api_url = os.getenv('API_URL', 'api')
+api_url = f"http://{api_url}:8001/api/v1/predict"
 
 # Implementación del modelo
 def analisis_sentimiento(resena):
-    if "jackie chan" in resena.lower():
-        return "Positiva"
-    else:
-        return "Negativa"
+    headers = {
+        "Content-Type": "application/json",
+        "accept": "application/json"
+    }
+    payload = {
+        "inputs": [
+            {
+                "review": resena
+            }
+        ]
+    }
+    try:
+        response = requests.post(
+            api_url,
+            headers=headers,
+            data=json.dumps(payload)
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            # La API retorna una predicción en data["predictions"][0]
+            return "Positiva" if data["predictions"][0] == 1 else "Negativa"
+        else:
+            return f"Error en la API: {response.status_code}"
+    except requests.exceptions.RequestException as e:
+        return f"Error de conexión: {str(e)}"
 
 # Aplicación Dash
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -54,6 +83,11 @@ def actualizar_resultado(n_clicks, resena):
     return ''
 
 if __name__ == '__main__':
-    #app.run_server(debug=True)
-    app.run_server(host ="0.0.0.0", debug=True)
+    # app.run_server(host ="0.0.0.0", debug=True)
+    app.run_server(
+        host="0.0.0.0",
+        port=8000,
+        debug=True,  # Enable debug mode
+        use_reloader=True  # Enable hot reloading
+    )
 

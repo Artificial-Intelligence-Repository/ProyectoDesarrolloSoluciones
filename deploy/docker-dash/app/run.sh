@@ -1,0 +1,1 @@
+gunicorn app2:server -b :$PORT --timeout 600
