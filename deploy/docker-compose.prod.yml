@@ -19,7 +19,7 @@ services:
       - "8000:8000"
     environment:
       - PORT=8000
-      - API_URL=3.87.144.86
+      - API_URL=54.242.48.139
     volumes:
       - ./docker-dash/app:/opt/app
     command: ["python", "app2.py"]
